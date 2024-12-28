@@ -3,12 +3,14 @@ const { google } = require('googleapis');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // Enable CORS for frontend requests
-app.use(bodyParser.json()); // Parse JSON bodies
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
 
 // Load your Google service account credentials
 const credentials = require('./nino.json');
