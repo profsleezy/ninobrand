@@ -42,11 +42,6 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Your existing routes and logic...
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 // Endpoint to fetch data from Google Sheets
 app.get('/api/items', async (req, res) => {
   try {
