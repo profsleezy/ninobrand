@@ -12,11 +12,20 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
 
-// Load your Google service account credentials
-const credentials = require('./nino.json');
-const spreadsheetId = '1fHn5CxOoJpYtoqvom6SlX9weBW4JUNvqjTrEbqE7kL8'; // Replace with your spreadsheet ID
+// Load Google service account credentials from environment variables
+const credentials = {
+  type: process.env.GOOGLE_TYPE,
+  project_id: process.env.GOOGLE_PROJECT_ID,
+  private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
+  private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Handle newline characters
+  client_email: process.env.GOOGLE_CLIENT_EMAIL,
+  client_id: process.env.GOOGLE_CLIENT_ID,
+  auth_uri: process.env.GOOGLE_AUTH_URI,
+  token_uri: process.env.GOOGLE_TOKEN_URI,
+  auth_provider_x509_cert_url: process.env.GOOGLE_AUTH_PROVIDER_X509_CERT_URL,
+  client_x509_cert_url: process.env.GOOGLE_CLIENT_X509_CERT_URL
+};
 
-// Authenticate with Google Sheets API
 const auth = new google.auth.GoogleAuth({
   credentials,
   scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
@@ -29,10 +38,15 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'officialninostore@gmail.com',
-    pass: 'tfyg rziu xzon cfxo' // Replace with your App Password
+    pass: process.env.EMAIL_PASSWORD // Use environment variable for email password
   }
 });
 
+// Your existing routes and logic...
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 // Endpoint to fetch data from Google Sheets
 app.get('/api/items', async (req, res) => {
   try {
