@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="main.css">
+    <script defer src="checkout.js"></script>
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="checkout-left">
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+            <div class="checkout-summary">
+                <p>Subtotal: <span id="cart-subtotal">$0.00</span></p>
+                <p>Shipping Fee: <span id="shipping-fee">$50.00</span></p>
+                <p>Total: <span id="cart-total">$0.00</span></p>
+            </div>
+        </div>
+        <div class="checkout-right">
+            <form id="checkout-form">
+                <h2>Contact Information</h2>
+                <input type="text" id="contact" name="contact" placeholder="Email or phone number" required>
+
+                <h2>Delivery Address</h2>
+                <input type="text" id="country" name="country" placeholder="Country/Region" required>
+                <div class="input-group">
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+                </div>
+                <input type="text" id="address" name="address" placeholder="Address" required>
+                <input type="text" id="apartment" name="apartment" placeholder="Apartment, suite, etc.">
+                <div class="input-group">
+                    <input type="text" id="city" name="city" placeholder="City" required>
+                    <input type="text" id="state" name="state" placeholder="State/Governate" required>
+                    <input type="text" id="postal-code" name="postal-code" placeholder="Postal Code (optional)">
+                </div>
+                <input type="text" id="phone" name="phone" placeholder="Phone" required>
+
+                <h2>Shipping Method</h2>
+                <p>Standard Shipping - $50.00</p>
+
+                <h2>Payment</h2>
+                <p>Cash on Delivery</p>
+
+                <h2>Billing Address</h2>
+                <label>
+                    <input type="radio" name="billing-address" value="same" checked> Same as shipping address
+                </label>
+                <label>
+                    <input type="radio" name="billing-address" value="different"> Use a different billing address
+                </label>
+                <div id="billing-address-fields" style="display: none;">
+                    <input type="text" id="billing-country" name="billing-country" placeholder="Country/Region">
+                    <div class="input-group">
+                        <input type="text" id="billing-first-name" name="billing-first-name" placeholder="First Name">
+                        <input type="text" id="billing-last-name" name="billing-last-name" placeholder="Last Name">
+                    </div>
+                    <input type="text" id="billing-address" name="billing-address" placeholder="Address">
+                    <input type="text" id="billing-apartment" name="billing-apartment" placeholder="Apartment, suite, etc.">
+                    <div class="input-group">
+                        <input type="text" id="billing-city" name="billing-city" placeholder="City">
+                        <input type="text" id="billing-state" name="billing-state" placeholder="State/Governate">
+                        <input type="text" id="billing-postal-code" name="billing-postal-code" placeholder="Postal Code (optional)">
+                    </div>
+                    <input type="text" id="billing-phone" name="billing-phone" placeholder="Phone">
+                </div>
+
+                <button type="submit" class="checkout-button">Submit Order</button>
+                <a href="main.html" class="button">Continue Shopping</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

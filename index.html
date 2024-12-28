@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NINO BRAND</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        @font-face {
+            font-family: 'Paladins';
+            src: url('paladinssemiital.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Paladins', Arial, sans-serif;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255, 182, 193, 1), rgba(255, 105, 180, 1), rgba(255, 160, 220, 1));
+            background-size: 300% 300%;
+            animation: moveGradient 10s infinite alternate;
+            filter: blur(20px);
+            z-index: -1; /* Ensure background stays behind */
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            color: white;
+            z-index: 1; /* Ensures content is above background */
+            opacity: 1; /* Ensures no transparency */
+        }
+
+        .logo {
+            margin-top: -200px;
+            max-width: 400px; /* Adjust size as needed */
+            margin-bottom: -20px;
+            opacity: 1; /* Fully visible */
+        }
+
+        .enter-button {
+            margin-top: -100px;
+            font-size: 24px;
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-family: 'Paladins', Arial, sans-serif; /* Apply Paladins font */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            background: none; /* No background */
+            animation: pulsateGlow 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulsateGlow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .enter-button:hover {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.7);
+            animation: pulsateGlow 1s infinite ease-in-out; /* Speed up glow effect on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="content">
+        <!-- Use a GIF for the logo -->
+        <img src="logo.gif" alt="Logo" class="logo">
+        <a href="main.html" class="enter-button">[Enter]</a>
+    </div>
+</body>
+</html>
