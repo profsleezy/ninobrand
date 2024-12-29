@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const catalogDiv = document.querySelector('.catalog');
 
     try {
-        const response = await fetch('https://ninobrand.vercel.app/api/items'); // Fetch data from backend
+        const response = await fetch('https://ninobrand.koyeb.app/api/items'); // Fetch data from backend
         const items = await response.json();
 
         items.forEach((item, index) => {

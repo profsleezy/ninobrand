@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/submit-order', {
+            const response = await fetch('https://ninobrand.koyeb.app/submit-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
